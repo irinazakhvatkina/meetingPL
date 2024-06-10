@@ -59,23 +59,44 @@
 
 // Задача 3: Напишите программу, которая принимает на вход целое число из отрезка [10, 99] и показывает наибольшую цифру числа.dotnet
 
-Console.WriteLine("Введите целое число из отрезка [10, 99]:   ");
-int n = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите целое число из отрезка [10, 99]:   ");
+// int n = Convert.ToInt32(Console.ReadLine());
 
-void Result (int x)
-{
-    if (n>10 && n<99)
-    {
-         int max = 0;
-         do max = Math.Max(max, n % 10);
-         while ((n /= 10) != 0);
-         Console.WriteLine(max);
-    }else 
-    {
-        Console.WriteLine ("Число не принадлежит отрезку [10, 99].");
-    }
-}
+// void Result (int x)
+// {
+//     if (n>10 && n<99)
+//     {
+//          int max = 0;
+//          do max = Math.Max(max, n % 10);
+//          while ((n /= 10) != 0);
+//          Console.WriteLine(max);
+//     }else 
+//     {
+//         Console.WriteLine ("Число не принадлежит отрезку [10, 99].");
+//     }
+// }
 
-Result (n);
+// Result (n);
 
 // Задача 4: Напишите программу, которая на вход принимает натуральное число N, а на выходе показывает его цифры через запятую.
+
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите натуральное число N: ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        string numberString = number.ToString();
+        for (int i = 0; i < numberString.Length; i++)
+        {
+            Console.Write(numberString[i]);
+            if (i < numberString.Length - 1)
+            {
+                Console.Write(", ");
+            }
+        }
+
+        Console.WriteLine();
+    }
+}
