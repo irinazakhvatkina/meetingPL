@@ -41,26 +41,57 @@
 
 // // Задача 2: Задайте массив заполненный случайными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 
+// using System;
+// class Program
+// {
+//     static void Main()
+//     {
+//         int[] numbers = new int[10]; 
+//         Random random = new Random(); 
+//         int evenCount = 0; 
+
+//         for (int i = 0; i < numbers.Length; i++)
+//         {
+//             numbers[i] = random.Next(100, 1000); 
+//             Console.Write(numbers[i] + " "); 
+
+//             if (numbers[i] % 2 == 0)
+//             {
+//                 evenCount++;
+//             }
+//         }
+        
+//         Console.WriteLine($"\nКоличество четных чисел в массиве: {evenCount}");
+//     }
+// }
+
+// // Задача 3: Напишите программу, которая перевернёт одномерный массив (первый элемент станет последним, второй – предпоследним и т.д.)
+
 using System;
 class Program
 {
     static void Main()
     {
-        int[] numbers = new int[10]; 
-        Random random = new Random(); 
-        int evenCount = 0; 
+        int[] numbers = {1, 3, 5, 6, 7, 8}; 
+        int temp;
 
-        for (int i = 0; i < numbers.Length; i++)
+        Console.Write("Исходный массив: ");
+        foreach (int number in numbers)
         {
-            numbers[i] = random.Next(100, 1000); 
-            Console.Write(numbers[i] + " "); 
-            
-            if (numbers[i] % 2 == 0)
-            {
-                evenCount++;
-            }
+            Console.Write(number + " ");
         }
-        
-        Console.WriteLine($"\nКоличество четных чисел в массиве: {evenCount}");
+
+        for (int i = 0; i < numbers.Length / 2; i++)
+        {
+            temp = numbers[i];
+            numbers[i] = numbers[numbers.Length - 1 - i];
+            numbers[numbers.Length - 1 - i] = temp;
+            }
+            
+        Console.Write("\nПеревернутый массив: ");
+        foreach (int number in numbers)
+        {
+            Console.Write(number + " ");
+        }
     }
 }
