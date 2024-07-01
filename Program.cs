@@ -1,102 +1,55 @@
-﻿// Задача 1: Напишите программу, которая принимает на вход число и проверяет, кратно ли оно одновременно 7 и 23.
+﻿// Задача 1: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N. Использовать рекурсию, не использовать циклы.
 
-// bool multiplicity (int x)
+// Console.Write("Введите значение M: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите значение N: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// void che(int m, int n)
 // {
-//     if (x % 7 == 0 &&  x % 23 == 0)
+//     if (m > n)
+//     return;
+    
+//     if (m % 2 == 0)
 //     {
-//         return true;
+//         Console.Write($"{m}, ");
 //     }
-//     return false;
-// }
-
-// void Result (int x)
-// {
-//     if (multiplicity (x))
-//     {
-//         Console.WriteLine ("да");
-//     }
-//     else
-//     {
-//         Console.WriteLine ($"Данное число не кратно 7 и 23, {x % 7 == 0 &&  x % 23 == 0}");
-//     }
+//     che(m+1,n);
 
 // }
+// che(m,n);
 
-// Console.WriteLine("Input first number:   ");
-// int x = Convert.ToInt32(Console.ReadLine());
-// Result (x);
+// Задача 2: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 
-// Задача 2: Напишите программу, которая принимает на вход координаты точки (X и Y), причём X ≠ 0 и Y ≠ 0 и выдаёт номер координатной четверти плоскости, в которой находится эта точка.
-
-// void Result (int x, int y)
-// {
-//     if (x>0 && y>0)
-//     {
-//         Console.WriteLine ("I");
-//     }else 
-//     if(x<0 && y<0)
-//     {
-//         Console.WriteLine ("III");
-//     }else 
-//     if(x<0 && y>0)
-//     {
-//         Console.WriteLine ("IV");
-//     }else 
-//     if(x>0 && y<0)
-//     {
-//         Console.WriteLine ("II");
-//     }else
-//     {
-//         Console.WriteLine ("Точка не лежит ни в одной из плоскастей.");
-//     }
-// }
-
-// Console.WriteLine("Input X number:   ");
-// int x = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Input Y umber:  ");
-// int y = Convert.ToInt32(Console.ReadLine());
-// Result (x,y);
-
-// Задача 3: Напишите программу, которая принимает на вход целое число из отрезка [10, 99] и показывает наибольшую цифру числа.dotnet
-
-// Console.WriteLine("Введите целое число из отрезка [10, 99]:   ");
+// Console.Write("Введите значение M: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите значение N: ");
 // int n = Convert.ToInt32(Console.ReadLine());
 
-// void Result (int x)
+// int akkerman(int m, int n)
 // {
-//     if (n>10 && n<99)
-//     {
-//          int max = 0;
-//          do max = Math.Max(max, n % 10);
-//          while ((n /= 10) != 0);
-//          Console.WriteLine(max);
-//     }else 
-//     {
-//         Console.WriteLine ("Число не принадлежит отрезку [10, 99].");
-//     }
+//     if (m == 0) return n + 1;
+//     else if (n == 0) return akkerman((m - 1), 1);
+//     else return akkerman((m - 1), akkerman(m, (n - 1)));
 // }
 
-// Result (n);
+// Console.Write($"Функция Аккермана равно {akkerman(m, n)} ");
 
-// Задача 4: Напишите программу, которая на вход принимает натуральное число N, а на выходе показывает его цифры через запятую.
+// Задача 3: Задайте произвольный массив. Выведете его элементы, начиная с конца. Использовать рекурсию, не использовать циклы.
 
-using System;
 class Program
 {
-    static void Main()
-    {
-        Console.Write("Введите натуральное число N: ");
-        int number = Convert.ToInt32(Console.ReadLine());
-        string numberString = number.ToString();
-        for (int i = 0; i < numberString.Length; i++)
-        {
-            Console.Write(numberString[i]);
-            if (i < numberString.Length - 1)
-            {
-                Console.Write(", ");
-            }
-        }
+   static void Main(string[] args)
+   {
+       int[] array = { 1, 2, 5, 0, 10, 34 };
+       PrintArrayReversed(array, array.Length - 1);
+   }
 
-        Console.WriteLine();
-    }
+   static void PrintArrayReversed(int[] array, int index)
+   {
+       if (index >= 0)
+       {
+           Console.Write(array[index] + " ");
+           PrintArrayReversed(array, index - 1);
+       }
+   }
 }
