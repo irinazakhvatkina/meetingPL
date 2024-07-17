@@ -4,7 +4,7 @@
 // int m = Convert.ToInt32(Console.ReadLine());
 // Console.Write("Введите значение N: ");
 // int n = Convert.ToInt32(Console.ReadLine());
-// void che(int m, int n)
+// void Che(int m, int n)
 // {
 //     if (m > n)
 //     return;
@@ -13,10 +13,10 @@
 //     {
 //         Console.Write($"{m}, ");
 //     }
-//     che(m+1,n);
+//     Che(m+1,n);
 
 // }
-// che(m,n);
+// Che(m,n);
 
 // Задача 2: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 
@@ -25,14 +25,14 @@
 // Console.Write("Введите значение N: ");
 // int n = Convert.ToInt32(Console.ReadLine());
 
-// int akkerman(int m, int n)
+// int Akkerman(int m, int n)
 // {
 //     if (m == 0) return n + 1;
-//     else if (n == 0) return akkerman((m - 1), 1);
-//     else return akkerman((m - 1), akkerman(m, (n - 1)));
+//     if (n == 0) return Akkerman((m - 1), 1);
+//     return Akkerman((m - 1), Akkerman(m, (n - 1)));
 // }
 
-// Console.Write($"Функция Аккермана равно {akkerman(m, n)} ");
+// Console.Write($"Функция Аккермана равно {Akkerman(m, n)} ");
 
 // Задача 3: Задайте произвольный массив. Выведете его элементы, начиная с конца. Использовать рекурсию, не использовать циклы.
 
